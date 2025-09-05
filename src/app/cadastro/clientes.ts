@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid';
 
-export class Cliente {
+export class Clientes {
   id?: string;
   nome?: string;
   cpf?: string;
@@ -8,7 +8,7 @@ export class Cliente {
   email?: string;
 
   static newCliente() {
-    const cliente = new Cliente();
+    const cliente = new Clientes();
     cliente.id = uuid();
 
     return cliente;

@@ -6,7 +6,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { Cliente } from './clientes';
+import { Clientes } from './clientes';
+import { ClienteService } from '../cliente-service';
 
 @Component({
   selector: 'app-cadastro',
@@ -23,9 +24,11 @@ import { Cliente } from './clientes';
   styleUrl: './cadastro.scss',
 })
 export class Cadastro {
-  cliente: Cliente = Cliente.newCliente();
+  cliente: Clientes = Clientes.newCliente();
+
+  constructor(private clienteService: ClienteService) {}
 
   salvar() {
-    console.log('Dados Cliente: ', this.cliente);
+    this.clienteService.salvar(this.cliente);
   }
 }
